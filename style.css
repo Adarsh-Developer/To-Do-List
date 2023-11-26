@@ -170,7 +170,7 @@ li.active::before {
     min-height: 100vh;
     border-radius: 0;
     border: none;
-    padding-inline: 5px;
+    padding-inline: 10px;
   }
   .main__container{
     padding: 0;
