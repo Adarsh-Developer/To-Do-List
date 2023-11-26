@@ -1,0 +1,183 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+.main__container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #A2D2FF -100%, #001433 150%);
+  display: grid;
+  place-items: center;
+  padding: 0 10px;
+}
+
+.list__container {
+  max-width: 500px;
+  min-width: max-content;
+  width: 100%;
+  min-height: 300px;
+  background: #ffffff81;
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: 2px solid #fff;
+  padding: 30px;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 600;
+  color: #001433;
+  margin-left: 12px;
+}
+
+.input__box {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  background-color: #ffffff91;
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input__box input {
+  width: 80%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 15px;
+  font-size: 17px; 
+  padding-right: 2px;
+}
+
+.input__box input::placeholder {
+  font-size: 17px;
+}
+
+.input__box .add__btn {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  border: none;
+  outline: none;
+  background-color: #001433;
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.task__container {
+  margin-top: 30px;
+  padding: 15px;
+  max-width: 80vw;
+}
+
+.task__container li {
+  width: 95%;
+  list-style: none;
+  position: relative;
+  padding-left: 40px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #001433;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #001433;
+} 
+
+.task__container li p{
+  width: 60vw;
+  text-align: justify;
+  word-spacing: -0.5px;
+  margin-right: 20px;
+}
+
+.task__container li.active {
+  text-decoration: line-through;
+  color: #001433aa;
+  text-decoration-color: #001433;
+}
+
+.task__container li::before {
+  content: '';
+  height: 18px;
+  width: 18px;
+  border: 2px solid #001433;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  background-position: center center;
+  background-size: 22px 22px;
+  cursor: pointer;
+}
+
+li.active::before {
+  background-image: url(./tick.png);
+  background-color: #001433;
+}
+
+.task__container li span{
+  position: absolute;
+  right: -5%;
+  top: 4px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  color: #001433;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+}
+
+.task__container li span:hover {
+  background-color: #001433;
+  color: #fff;
+}
+
+@media (max-width : 650px) {
+  .list__container{
+    max-width: initial;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    padding-inline: 5px;
+  }
+  .main__container{
+    padding: 0;
+  }
+  .task__container {
+    max-width: initial;
+    width: 100%;
+  }
+  .task__container li p{
+    text-align: left;
+  }
+  .task__container {
+    height: auto;
+  }
+}
