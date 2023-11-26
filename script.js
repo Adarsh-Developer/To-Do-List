@@ -2,8 +2,8 @@ const taskContainer = document.querySelector(".task__container");
 const inputTask = document.querySelector(".input__task");
 const addButton = document.querySelector(".add__btn");
 
-addButton.addEventListener("click", function () {
-  /*TO ADD THE TASK*/
+/* Function to add the task in you to do list... */
+function addTask() {
   if (inputTask.value === "") {
     alert("Please enter a task");
   } else {
@@ -17,14 +17,25 @@ addButton.addEventListener("click", function () {
     list.appendChild(span);
 
     taskContainer.appendChild(list);
-    saveData(); 
+    saveData();
   }
 
   inputTask.value = "";
+}
+
+addButton.addEventListener("click", function () {
+  /*TO ADD THE TASK*/
+  addTask();
+});
+
+inputTask.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
 
 
-/*This is to remove the task*/
+/* This is to remove the task */
 taskContainer.addEventListener("mouseenter", function () {
   const closeButton = document.querySelectorAll("li span");
   closeButton.forEach(function (task) {
@@ -35,16 +46,17 @@ taskContainer.addEventListener("mouseenter", function () {
   });
 
 
-  /*This is when the task is completed*/
-  const taskContainerLi = document.querySelectorAll(".task__container li")
+  /* This is when the task is completed */
+  const taskContainerLi = document.querySelectorAll(".task__container li");
   taskContainerLi.forEach(function (task) {
     task.addEventListener("click", function () {
       task.classList.toggle("active");
       saveData();
     });
-  })
+  });
 });
 
+/* To save the data in Local Storage */
 function saveData() {
   localStorage.setItem("data", taskContainer.innerHTML);
 }
